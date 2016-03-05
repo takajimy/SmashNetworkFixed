@@ -1,0 +1,102 @@
+﻿<!--
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../Native/paper-styles/paper-styles.html">
+<link rel="import" href="../Native/paper-button/paper-button.html">
+<link rel="import" href="../Native/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../Native/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../Native/paper-item/paper-icon-item.html">
+<link rel="import" href="../Native/paper-item/paper-item.html">
+<link rel="import" href="../Native/paper-item/paper-item-body.html">
+<link rel="import" href="../Native/iron-icon/iron-icon.html">
+<link rel="import" href="../Native/iron-icons/iron-icons.html">
+<link rel="import" href="../Native/iron-flex-layout/classes/iron-flex-layout.html">
+
+<dom-module id="smash-network-navigator-button">
+    <template>
+        <style is="custom-style">
+            paper-icon-button {
+            }
+
+                paper-icon-button.green {
+                    color: #04B486;
+                }
+
+                paper-icon-button.red {
+                    color: #DF0101;
+                }
+
+                paper-icon-button.gray {
+                    color: #D8D8D8;
+                }
+
+                paper-icon-button.yellow {
+                    color: #FFFF00;
+                }
+
+                paper-icon-button.indigo {
+                    color: #642EFE;
+                }
+
+                paper-icon-button.debug {
+                    color: #6A0888;
+                }
+
+            paper-icon-button:hover {
+                opacity: 0.6;
+                border-radius: 50%;
+            }
+
+                paper-icon-button.green:hover {
+                    background: #B8DFD5;
+                }
+
+                paper-icon-button.red:hover {
+                    background: #DFB8B8;
+                }
+
+                paper-icon-button.gray:hover {
+                    background: #FFFFFF;
+                }
+
+                paper-icon-button.yellow:hover {
+                    background: #FBFBD6;
+                }
+
+                paper-icon-button.indigo:hover {
+                    background: #D2C1FF;
+                }
+
+                paper-icon-button.debug:hover {
+                    background: #D2AFDD;
+                }
+        </style>
+        
+        <paper-icon-button id="{{to}}" icon="{{icon}}" class$="{{color}}" on-click="handleClick">
+            <content></content>
+        </paper-icon-button>
+        <paper-tooltip for="{{to}}" offset="0">{{to}}</paper-tooltip>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'smash-network-navigator-button',
+            properties: {
+                to: String,
+                link: String,
+                icon: String,
+                title: String,
+                color: String
+            },
+            handleClick: function() {
+                window.location.href = this.link;
+            }
+        })
+    </script>
+</dom-module>
